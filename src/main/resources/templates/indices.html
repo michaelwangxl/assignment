@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dow Jones Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <form method="post" th:action="@{/djindex/query}" th:object="${djIndex}">
+        <ul>
+            <li><a href="/">Home</a></li>
+        </ul>
+        Stock:<input type="text" name="stock"/>
+        <input type="submit" name="Query" value="Query" class="btn btn-primary"/>
+        <input type="button" name="Add" value="Add a New Index" th:onclick="|window.location.href='/djindex/add'|" class="btn btn-primary"/>
+        </br>
+
+        <div th:if="${not #lists.isEmpty(Indices)}">
+            <div th:if="${message}">
+                <h4 th:text="${message}"/>
+            </div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">quarter</th>
+                    <th scope="col">stock</th>
+                    <th scope="col">date</th>
+                    <th scope="col">open</th>
+                    <th scope="col">high</th>
+                    <th scope="col">low</th>
+                    <th scope="col">close</th>
+                    <th scope="col">volume</th>
+                    <th scope="col">percent_change_price</th>
+                    <th scope="col">percent_change_volume_over_last_wk</th>
+                    <th scope="col">previous_weeks_volume</th>
+                    <th scope="col">next_weeks_open</th>
+                    <th scope="col">next_weeks_close</th>
+                    <th scope="col">percent_change_next_weeks_price</th>
+                    <th scope="col">days_to_next_dividend</th>
+                    <th scope="col">percent_return_next_dividend</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="index:${Indices}">
+                    <td scope="col" th:text="${index.index_id}"></td>
+                    <td scope="col" th:text="${index.quarter}"></td>
+                    <td scope="col" th:text="${index.stock}"></td>
+                    <td scope="col" th:text="${index.date}"></td>
+                    <td scope="col" th:text="${index.open}"></td>
+                    <td scope="col" th:text="${index.high}"></td>
+                    <td scope="col" th:text="${index.low}"></td>
+                    <td scope="col" th:text="${index.close}"></td>
+                    <td scope="col" th:text="${index.volume}"></td>
+                    <td scope="col" th:text="${index.percent_change_price}"></td>
+                    <td scope="col" th:text="${index.percent_change_volume_over_last_wk}"></td>
+                    <td scope="col" th:text="${index.previous_weeks_volume}"></td>
+                    <td scope="col" th:text="${index.next_weeks_open}"></td>
+                    <td scope="col" th:text="${index.next_weeks_close}"></td>
+                    <td scope="col" th:text="${index.percent_change_next_weeks_price}"></td>
+                    <td scope="col" th:text="${index.days_to_next_dividend}"></td>
+                    <td scope="col" th:text="${index.percent_return_next_dividend}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
+</body>
+</html>

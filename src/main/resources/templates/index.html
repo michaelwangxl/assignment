@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add A Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Add a Index:</h2>
+
+    <form th:object="${djIndex}" th:action="@{/djindex/save}" method="post">
+        <!--<input type="hidden" th:field="*{version}">-->
+        <div class="form-group row">
+            <label class="col-sm-3 ">quarter:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="quarter" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">stock:</label>
+            <div class="col-sm-5">
+                <input type="text"  name="stock" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">date:</label>
+            <div class="col-sm-5">
+                <input type="date" value="8/18/2021"  name="date" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">open:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="open" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">high:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="high" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">low:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="low" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">close:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="close" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">volume:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="volume" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">percent_change_price:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="percent_change_price" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">percent_change_volume_over_last_wk:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="quapercent_change_volume_over_last_wkrter" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">previous_weeks_volume:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="previous_weeks_volume" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">next_weeks_open:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="next_weeks_open" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">next_weeks_close:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="next_weeks_close" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">percent_change_next_weeks_price:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="percent_change_next_weeks_price" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">days_to_next_dividend:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="days_to_next_dividend" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 ">percent_return_next_dividend:</label>
+            <div class="col-sm-5">
+                <input type="number" value=0  name="percent_return_next_dividend" required/>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+
+        <div th:if="${message}">
+            <h4 th:text="${message}"/>
+        </div>
+    </form>
+    <ul>
+        <li><a href="/djindex/list">Indices</a></li>
+    </ul>
+
+</div>
+</body>
+</html>

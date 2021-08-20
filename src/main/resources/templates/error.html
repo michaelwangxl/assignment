@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Page</title>
+</head>
+<body>
+
+<H2>Error Page</H2>
+<div th:if="${message}">
+    <h3 th:text="${message}"/>
+</div>
+<ul>
+    <li><a href="/">Home</a></li>
+</ul>
+</body>
+</html>
